@@ -7,6 +7,12 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
+/**
+ * 
+ * @author Fedor
+ * @version 1.0
+ * @since 2016-12-05
+ */
 public class IPPresenter {
 
 	private static Logger log = Logger.getLogger(IPPresenter.class);
@@ -21,6 +27,9 @@ public class IPPresenter {
 		out = System.out;
 	}
 
+	/**
+	 * Start point of the program.
+	 */
 	public int start() {
 
 		log.info("Program is started");
@@ -57,7 +66,7 @@ public class IPPresenter {
 			}
 
 			in.close();
-			
+
 		} catch (Exception exc) {
 			log.error("Error was occured during program running", exc);
 		}
@@ -67,6 +76,13 @@ public class IPPresenter {
 		return 0;
 	}
 
+	/**
+	 * 
+	 * @param addr
+	 *            IP address is checked according to the regular expression
+	 *            template.
+	 * @return true - IP address is correct, false - IP address is not correct.
+	 */
 	public boolean checkAddress(String addr) {
 		Pattern p = Pattern.compile(ipPattern);
 		Matcher m = p.matcher(addr);
@@ -74,6 +90,14 @@ public class IPPresenter {
 
 	}
 
+	/**
+	 * 
+	 * @param addr1
+	 *            first entered IP address, a low bound of a range.
+	 * @param addr2
+	 *            second entered IP address, an upper bound of a range.
+	 * @return
+	 */
 	public int showRange(String addr1, String addr2) {
 
 		int[] addrArr1 = new int[4], addrArr2 = new int[4];
